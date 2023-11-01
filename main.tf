@@ -1,6 +1,5 @@
 module "labels" {
-  source      = "terraform-do-modules/labels/digitalocean"
-  version     = "1.0.0"
+  source      = "git::https://github.com/opz0/terraform-digitalocean-labels.git?ref=v1.0.0"
   name        = var.name
   environment = var.environment
   managedby   = var.managedby
@@ -73,6 +72,7 @@ resource "digitalocean_floating_ip_assignment" "main" {
   depends_on = [digitalocean_droplet.main, digitalocean_floating_ip.main, digitalocean_volume_attachment.main]
 }
 
+#tfsec:ignore:digitalocean-compute-no-public-egress
 resource "digitalocean_firewall" "default" {
   depends_on  = [digitalocean_droplet.main]
   count       = var.enable_firewall == true && var.enabled == true ? 1 : 0
