@@ -17,7 +17,7 @@ The Droplet module allows you to create DigitalOcean Droplets within the VPC cre
 
 ```hcl
 module "droplet" {
-  source      = "../"
+  source      = "git::https://github.com/opz0/terraform-digitalocean-droplet.git?ref=v1.0.0"
   name        = "app"
   environment = "test"
   region      = "blr1"
