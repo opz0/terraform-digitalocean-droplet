@@ -1,4 +1,5 @@
 # terraform-digitalocean-droplet
+# Terraform-Digitalocean-Droplet
 ## Table of Contents
 
 - [Introduction](#introduction)
