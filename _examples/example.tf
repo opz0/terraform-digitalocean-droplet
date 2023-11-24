@@ -5,7 +5,7 @@ provider "digitalocean" {}
 ## VPC module call
 ##------------------------------------------------
 module "vpc" {
-  source = "git::https://github.com/opz0/terraform-digitalocean-vpc.git?ref=v1.0.0"
+  source = "git::https://github.com/cypik/terraform-digitalocean-vpc.git?ref=v1.0.0"
 
   name        = "app"
   environment = "test"
@@ -24,9 +24,9 @@ module "droplet" {
 
   droplet_count = 1
   vpc_uuid      = module.vpc.id
-  ssh_key       = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAxsgc"
+  ssh_key       = "ssh-rsa AAbimg/NuiVu2rF7xTKiSfBgmhmmv/w7YhI0"
   user_data     = file("user-data.sh")
-  ####firewall
+
   inbound_rules = [
     {
       allowed_ip    = ["10.20.0.0/16"]

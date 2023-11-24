@@ -15,16 +15,18 @@ This Terraform configuration sets up a DigitalOcean Virtual Private Cloud (VPC) 
 To get started, make sure you have configured your DigitalOcean provider. You can use the following code as a starting point:
 The Droplet module allows you to create DigitalOcean Droplets within the VPC created by the VPC module. You can use this module by including the following code in your Terraform configuration:
 
+## Example: droplet
+
 ```hcl
 module "droplet" {
-  source      = "git::https://github.com/opz0/terraform-digitalocean-droplet.git?ref=v1.0.0"
+  source      = "git::https://github.com/cypik/terraform-digitalocean-droplet.git?ref=v1.0.0"
   name        = "app"
   environment = "test"
   region      = "blr1"
 
   droplet_count = 1
   vpc_uuid      = module.vpc.id
-  ssh_key       = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAxsgc"
+  ssh_key       = "ssh-rsa AAAAB3NBAAABgQCjrNE0k5e4YOH"
   user_data     = file("user-data.sh")
 
   inbound_rules = [
@@ -56,10 +58,10 @@ Please make sure to configure these variables according to your requirements.
 - 'droplet_ids' (list of strings): The IDs of the created Droplets.
 
 ## Examples
-For detailed examples on how to use this module, please refer to the 'examples' directory within this repository.
+For detailed examples on how to use this module, please refer to the '[examples](https://github.com/cypik/terraform-digitalocean-droplet/blob/master/_examples)' directory within this repository.
 
 ## Author
 Your Name Replace '[License Name]' and '[Your Name]' with the appropriate license and your information. Feel free to expand this README with additional details or usage instructions as needed for your specific use case.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/opz0/terraform-digitalocean-droplet/blob/master/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/cypik/terraform-digitalocean-droplet/blob/master/LICENSE) file for details.
