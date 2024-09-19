@@ -6,7 +6,7 @@ provider "digitalocean" {}
 ##------------------------------------------------
 module "vpc" {
   source      = "cypik/vpc/digitalocean"
-  version     = "1.0.1"
+  version     = "1.0.2"
   name        = "app"
   environment = "test"
   region      = "blr1"
@@ -17,14 +17,14 @@ module "vpc" {
 ## Droplet module call
 ##------------------------------------------------
 module "droplet" {
-  source      = "../"
+  source      = "./../"
   name        = "app"
   environment = "test"
   region      = "blr1"
 
   droplet_count = 1
   vpc_uuid      = module.vpc.id
-  ssh_key       = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAxsgc"
+  ssh_key       = "ssh-rsaDNCOvCPIhy2t2967zy1sBBNy/p4MDUSsGTc= baldev@baldev"
   user_data     = file("user-data.sh")
   ####firewall
   inbound_rules = [
